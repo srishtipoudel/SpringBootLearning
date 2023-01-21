@@ -8,5 +8,9 @@ Initial Stage:</br>
 After adding a simple REST controller:</br>
 ![Simple REST Controller](/img/hi.jpg "Simple REST Controller")
 
+After returning objects from controller:</br>
+![Adding Object Results](/img/simple.jpg "Returning Object from controller")
+
+
 
 
