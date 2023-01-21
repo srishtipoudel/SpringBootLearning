@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TaskService {
+	
+	@Autowired
+	private TaskRepository taskRepository;
 	
 	List<Task> tasks=new ArrayList<>( Arrays.asList(
 			new Task("work", "Spring Boot Starter App", "Complete by Monday"),
@@ -19,6 +23,9 @@ public class TaskService {
 
 	public List<Task> getAllTasks() {
 		// TODO Auto-generated method stub
+		List<Task> tasks=new ArrayList<>();
+		taskRepository.findAll()
+		.forEach(tasks::add);
 		return tasks;
 	}
 	
@@ -27,7 +34,7 @@ public class TaskService {
 	}
 
 	public void addTask(Task task) {
-		tasks.add(task);
+		taskRepository.save(task);
 		
 	}
 
